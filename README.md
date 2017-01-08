@@ -1,8 +1,8 @@
-# Cross | Over Challenge
+# Desafio | UPX Technologies
 
 ## Get Started
 
-Para instalar as dependências é necessário ter o NodeJS e NPM instalados e as seguintes dependências:
+Para instalar as dependências é necessário possuir o NodeJS e NPM instalados e as seguintes dependências:
 
 ```npm install -g grunt-cli bower yo generator-karma generator-angular```
 

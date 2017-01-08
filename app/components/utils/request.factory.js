@@ -1,54 +1,117 @@
 'use strict';
 
-(function () {
+(function() {
 
-	/**
+  /**
    * Definição do Factory para todas as Requisições.
    * @author Rádames Santiago <radames@infoway-pi.com.br>
    * @class RequestFactory
    */
-	var RequestFactory = function($rootScope, $http){
+  var RequestFactory = function($rootScope, $http) {
 
-		var RequestFactory = {};
+    var RequestFactory = {};
 
-		/**
-		 * Verifica se o browser do usuário tem conexão com a Internet.
-		 * @author Rádames Santiago <radames@infoway-pi.com.br>
-		 * @name isOnline
-		 * @function
-		 * @returns {boolean} Está online ou não.
-		 * @memberof RequestFactory
-		 */
-		var isOnline = function(){
-			var onLine = window.navigator.onLine;
-			return onLine;
-		};
+    /**
+     * Verifica se o browser do usuário tem conexão com a Internet.
+     * @author Rádames Santiago <radames@infoway-pi.com.br>
+     * @name isOnline
+     * @function
+     * @returns {boolean} Está online ou não.
+     * @memberof RequestFactory
+     */
+    var isOnline = function() {
+      var onLine = window.navigator.onLine;
+      return onLine;
+    };
 
-		/**
-		 * Monta uma requisição Get.
-		 * @author Rádames Santiago <radames@infoway-pi.com.br>
-		 * @name get
-		 * @function
-		 * @param {string} url Url da requisição.
-		 * @param {object} data Parâmetros.
-		 * @param {boolean} withoutLoader Sem Loader.
-		 * @param {boolean} withFilterLoader Com Loader do Filtro.
-		 * @returns {object} Promessa da requisição.
-		 * @memberof RequestFactory
-		 */
-		RequestFactory.get = function(url) {
-			if(isOnline()){
-				return $http.get(url);
-			}
-		}
+    /**
+     * Monta uma requisição Get.
+     * @author Rádames Santiago <radames@infoway-pi.com.br>
+     * @name get
+     * @function
+     * @param {string} url Url da requisição.
+     * @param {object} data Parâmetros.
+     * @param {boolean} withoutLoader Sem Loader.
+     * @param {boolean} withFilterLoader Com Loader do Filtro.
+     * @returns {object} Promessa da requisição.
+     * @memberof RequestFactory
+     */
+    RequestFactory.get = function(url) {
+      if (isOnline()) {
+        return $http.get(url);
+      }
+    };
 
-		return RequestFactory;
-	}
+    /**
+     * Monta uma requisição Post.
+     * @author Rádames Santiago <radames@infoway-pi.com.br>
+     * @name post
+     * @function
+     * @param {string} url Url da requisição.
+     * @param {object} data Parâmetros.
+     * @param {boolean} withoutLoader Sem Loader.
+     * @param {boolean} withFilterLoader Com Loader do Filtro.
+     * @returns {object} Promessa da requisição.
+     * @memberof RequestFactory
+     */
+    RequestFactory.post = function(url,params) {
+      if (isOnline()) {
+        return $http.post(url+params);
+      }
+    };
 
-	RequestFactory.$inject = ['$rootScope', '$http'];
+    /**
+     * Monta uma requisição Patch.
+     * @author Rádames Santiago <radames@infoway-pi.com.br>
+     * @name post
+     * @function
+     * @param {string} url Url da requisição.
+     * @param {object} data Parâmetros.
+     * @param {boolean} withoutLoader Sem Loader.
+     * @param {boolean} withFilterLoader Com Loader do Filtro.
+     * @returns {object} Promessa da requisição.
+     * @memberof RequestFactory
+     */
+    RequestFactory.patch = function(url,params) {
+      if (isOnline()) {
+        return $http.patch(url+params);
+      }
+    };
 
-	angular
-	.module('challengeApp')
-	.factory('RequestFactory', RequestFactory);
+    /**
+     * Monta uma requisição Post Completa.
+     * @author Rádames Santiago <radames@infoway-pi.com.br>
+     * @name get
+     * @function
+     * @param {string} url Url da requisição.
+     * @param {object} data Parâmetros.
+     * @param {boolean} withoutLoader Sem Loader.
+     * @param {boolean} withFilterLoader Com Loader do Filtro.
+     * @returns {object} Promessa da requisição.
+     * @memberof RequestFactory
+     */
+    RequestFactory.postFull = function(url, body) {
+      if (isOnline()) {
+        return $http({
+          url: url,
+          dataType: 'json',
+          method: 'POST',
+          data: body,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+      }
+    };
+
+
+    return RequestFactory;
+  };
+
+  RequestFactory.$inject = ['$rootScope', '$http'];
+
+  angular
+    .module('enquetesApp')
+    .factory('RequestFactory', RequestFactory);
 
 })();

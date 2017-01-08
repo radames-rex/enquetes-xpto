@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name challengeApp
+ * @name enquetesApp
  * @description
- * # challengeApp
+ * # enquetesApp
  *
  * Main module of the application.
  */
 angular
-  .module('challengeApp', [
+  .module('enquetesApp', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -21,9 +21,15 @@ angular
     'pascalprecht.translate',
     'ngMaterial'
   ])
+  .constant('REQUEST', {
+    api: {
+      url: 'http://polls.apiblueprint.org',
+      questions: '/questions'
+    }
+  })
   .constant('PATH', {
     main: '/main',
-    dashboard: '/dashboard'
+    questions: '/questions'
   })
   .config(function($stateProvider, $urlRouterProvider, $translateProvider, PATH) {
 
@@ -39,14 +45,14 @@ angular
       abstract: true,
       url: PATH.main,
       templateUrl: 'views/main.html'
-    }).state('main.dashboard', {
-      url: PATH.dashboard,
-      templateUrl: 'views/dashboard.html',
-      controller: 'DashboardCtrl as ctrl'
+    }).state('main.questions', {
+      url: PATH.questions,
+      templateUrl: 'views/questions.html',
+      controller: 'QuestionsCtrl as ctrl'
     });
 
     $urlRouterProvider.otherwise(function() {
-      return '/main/dashboard';
+      return '/main/questions';
     });
 
   });

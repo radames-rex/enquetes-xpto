@@ -2,7 +2,7 @@
 
 describe('Controller: DashboardCtrl', function () {
 
-  beforeEach(module('challengeApp'));
+  beforeEach(module('enquetesApp'));
 
   var DashboardCtrl,
     scope;
