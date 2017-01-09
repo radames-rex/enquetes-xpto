@@ -14,10 +14,15 @@
             <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">Adicionar +</md-button>
           </div>
           <div class="md-list-item-text" layout="column" ng-show="add">
-            <h3><input type="button" name="name" value=""></h3>
+            <h3>
+              <label>Question:</label>
+              <input name="question.name" ng-model="question.name" required>
+            </h3>
             <div>
-              <h4><input type="button" name="name" value=""></h4>
-              <p><input type="button" name="name" value=""></p>
+              <h4>
+                <label>Choice:</label>
+                <input name=" question.choice" ng-model="  question.choice" required>
+              </h4>
             </div>
           </div>
           <md-divider ></md-divider>
