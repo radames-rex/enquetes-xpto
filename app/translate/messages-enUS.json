@@ -1,0 +1,17 @@
+{
+	"general" : {
+		"welcome" : "Enquetes UPX",
+		"back" : "Voltar",
+		"others" : "Outros",
+		"error" : {
+			"request" : "Tentar Novamente!"
+		}
+	},
+	"questions" : {
+		"title": "Perguntas",
+    "add" : "Adicionar",
+    "question" : "Pergunta",
+    "choices" : "Opções",
+    "choice" : "Opção"
+	}
+}

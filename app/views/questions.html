@@ -2,28 +2,30 @@
   <div flex-gt-sm="100" flex>
     <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
-        <span>{{ 'question.name' | translate }}</span>
+        <span>{{ 'questions.title' | translate }}</span>
       </div>
     </md-toolbar>
 
     <md-content>
       <md-list flex>
-        <md-subheader class="md-no-sticky">{{ 'question.theme' | translate }} {{ '26.12.2016' }}</md-subheader>
         <md-list-item class="md-3-line">
           <div class="md-list-item-text" layout="column" ng-show="!add" ng-init="add = false">
             <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">Adicionar +</md-button>
           </div>
           <div class="md-list-item-text" layout="column" ng-show="add">
             <h3>
-              <label>Question:</label>
+              <label>{{ 'questions.question' | translate }}</label>
               <input name="question.name" ng-model="question.name" required>
             </h3>
             <div>
               <h4>
-                <label>Choice:</label>
+                <label>{{ 'questions.choice' | translate }}</label>
                 <input name=" question.choice" ng-model="  question.choice" required>
               </h4>
             </div>
+            <h4>
+              <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">Adicionar +</md-button>
+            </h4>
           </div>
           <md-divider ></md-divider>
         </md-list-item>

@@ -38,7 +38,7 @@ angular
       prefix: 'translate/messages-',
       suffix: '.json'
     });
-    $translateProvider.preferredLanguage('en');
+    $translateProvider.preferredLanguage('ptBR');
 
     /* Configuração dos estados e rotas da aplicação */
     $stateProvider.state('main', {
