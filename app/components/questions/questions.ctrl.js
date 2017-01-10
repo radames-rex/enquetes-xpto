@@ -12,7 +12,9 @@
   var QuestionsCtrl = function($scope, QuestionsFactory, $interval) {
 
     $scope.questions = [];
-    $scope.question = { "question": '', "choices": ''};
+    // $scope.question = { "question": '', "choices": ''};
+    $scope.count = [];
+    var numberCount = 0;
 
     $scope.refreshQuestions = function(){
       QuestionsFactory.getQuestions().then(function(data){
@@ -21,9 +23,21 @@
     };
 
     $scope.addQuestion = function(){
-      QuestionsFactory.postQuestions($scope.question).then(function(data){
+      var choices = [];
+      angular.forEach($scope.question.choices, function(value){
+        choices.push(value);
+      });
+      var body = {
+        "question" : $scope.question.question,
+        "choices" : choices
+      };
+      QuestionsFactory.postQuestions(body).then(function(data){
         console.log(data);
       });
+    };
+
+    $scope.addChoices = function(){
+      $scope.count.push(++numberCount);
     };
 
     $scope.refreshQuestions();

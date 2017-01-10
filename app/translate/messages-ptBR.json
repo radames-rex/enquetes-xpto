@@ -9,9 +9,13 @@
 	},
 	"questions" : {
 		"title": "Perguntas",
-    "add" : "Adicionar",
+    "add" : {
+      "quest" : "Adicionar questão",
+      "choice" : "Adicionar opção"
+    },
     "question" : "Pergunta",
     "choices" : "Opções",
-    "choice" : "Opção"
+    "choice" : "Opção",
+    "submit" : "Enviar"
 	}
 }

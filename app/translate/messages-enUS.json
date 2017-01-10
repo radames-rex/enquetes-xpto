@@ -1,17 +1,21 @@
 {
 	"general" : {
-		"welcome" : "Enquetes UPX",
-		"back" : "Voltar",
-		"others" : "Outros",
+		"welcome" : "Questions UPX",
+		"back" : "Back",
+		"others" : "Others",
 		"error" : {
-			"request" : "Tentar Novamente!"
+			"request" : "Try Again!"
 		}
 	},
 	"questions" : {
-		"title": "Perguntas",
-    "add" : "Adicionar",
-    "question" : "Pergunta",
-    "choices" : "Opções",
-    "choice" : "Opção"
+		"title": "Asking",
+    "add" : {
+      "quest" : "Add question",
+      "choice" : "Add choice"
+    },
+    "question" : "Question",
+    "choices" : "Choices",
+    "choice" : "Choice",
+    "submit" : "Submit"
 	}
 }

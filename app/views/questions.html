@@ -10,22 +10,35 @@
       <md-list flex>
         <md-list-item class="md-3-line">
           <div class="md-list-item-text" layout="column" ng-show="!add" ng-init="add = false">
-            <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">Adicionar +</md-button>
+            <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">
+              <i class="fa fa-plus" aria-hidden="true"></i>{{ 'questions.add.quest' | translate }}
+            </md-button>
           </div>
           <div class="md-list-item-text" layout="column" ng-show="add">
-            <h3>
-              <label>{{ 'questions.question' | translate }}</label>
-              <input name="question.name" ng-model="question.name" required>
-            </h3>
-            <div>
+            <form class="question__form" name="questionForm" ng-submit="addQuestion()">
+              <h3>
+                <label>{{ 'questions.question' | translate }}</label>
+                <input name="question.name" ng-model="question.question" required>
+              </h3>
+              <div id="choices">
+                <h4>
+                  <label>{{ 'questions.choice' | translate }}</label>
+                  <input name=" question.choice" ng-model="question.choices[0]" required>
+                </h4>
+                <h4 ng-repeat="i in count">
+                  <label>{{ 'questions.choice' | translate }}</label>
+                  <input name=" question.choice" ng-model="question.choices[i]" required>
+                </h4>
+              </div>
               <h4>
-                <label>{{ 'questions.choice' | translate }}</label>
-                <input name=" question.choice" ng-model="  question.choice" required>
+                <md-button class="md-mini" md-ripple-size="full" ng-click="addChoices()">
+                  <i class="fa fa-plus" aria-hidden="true"></i>{{ 'questions.add.choice' | translate }}
+                </md-button>
               </h4>
-            </div>
-            <h4>
-              <md-button class="md-mini" md-ripple-size="full" ng-click="add = true">Adicionar +</md-button>
-            </h4>
+              <md-button class="md-primary md-raised" type="submit" ng-disabled="questionForm.$invalid">
+                <i class="fa fa-pencil" aria-hidden="true"></i>{{ 'questions.submit' | translate }}
+              </md-button>
+            </form>
           </div>
           <md-divider ></md-divider>
         </md-list-item>
