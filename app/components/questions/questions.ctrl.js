@@ -12,7 +12,6 @@
   var QuestionsCtrl = function($scope, QuestionsFactory, $interval) {
 
     $scope.questions = [];
-    // $scope.question = { "question": '', "choices": ''};
     $scope.count = [];
     var numberCount = 0;
 

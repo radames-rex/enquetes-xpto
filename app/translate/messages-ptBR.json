@@ -14,6 +14,7 @@
       "quest" : "Adicionar questão",
       "choice" : "Adicionar opção"
     },
+		"votes": "votos",
     "question" : "Pergunta",
     "choices" : "Opções",
     "choice" : "Opção",
