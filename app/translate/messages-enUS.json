@@ -9,6 +9,7 @@
 	},
 	"questions" : {
 		"title": "Asking",
+		"title2" : "Add an asking:",
     "add" : {
       "quest" : "Add question",
       "choice" : "Add choice"

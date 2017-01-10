@@ -9,6 +9,7 @@
 	},
 	"questions" : {
 		"title": "Perguntas",
+		"title2" : "Adicione uma Pergunta:",
     "add" : {
       "quest" : "Adicionar questão",
       "choice" : "Adicionar opção"

@@ -16,33 +16,35 @@
     $scope.count = [];
     var numberCount = 0;
 
-    $scope.refreshQuestions = function(){
-      QuestionsFactory.getQuestions().then(function(data){
+    $scope.refreshQuestions = function() {
+      QuestionsFactory.getQuestions().then(function(data) {
         $scope.questions = data;
       });
     };
 
-    $scope.addQuestion = function(){
+    $scope.addQuestion = function() {
       var choices = [];
-      angular.forEach($scope.question.choices, function(value){
+      angular.forEach($scope.question.choices, function(value) {
         choices.push(value);
       });
       var body = {
-        "question" : $scope.question.question,
-        "choices" : choices
+        "question": $scope.question.question,
+        "choices": choices
       };
-      QuestionsFactory.postQuestions(body).then(function(data){
-        console.log(data);
+
+      QuestionsFactory.postQuestions(body).then(function() {
+        $scope.refreshQuestions();
+        $scope.add = false;
       });
     };
 
-    $scope.addChoices = function(){
+    $scope.addChoices = function() {
       $scope.count.push(++numberCount);
     };
 
     $scope.refreshQuestions();
 
-    $interval(function(){
+    $interval(function() {
       $scope.refreshQuestions();
     }, 60000);
 
