@@ -10,6 +10,10 @@ Para instalar as demais dependências de desenvolvimento:
 
 ```npm install```
 
+ou
+
+```sudo npm install```
+
 Para instalar as demais dependências de front-end:
 
 ```bower install```

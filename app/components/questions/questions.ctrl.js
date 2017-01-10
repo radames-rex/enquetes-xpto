@@ -30,7 +30,6 @@
         "question": $scope.question.question,
         "choices": choices
       };
-
       QuestionsFactory.postQuestions(body).then(function() {
         $scope.refreshQuestions();
         $scope.add = false;
